@@ -1,0 +1,35 @@
+.col-md-2 {
+	display: inline-block;
+	margin-left: 73px;
+}
+
+.col-md-2 img {
+	width:255px;
+	height: 300px;
+}
+
+.carousel-indicators .active{
+	background-color: rgb(13, 168, 103);
+}
+
+body .carousel-indicator li{
+	background-color: rgb(185, 183, 32);
+}
+body .carousel-indicators{
+	bottom: 0;
+}
+
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+	background-color: rgb(0, 123, 204);
+}
+	
+body .no-padding{
+	padding-left:0,
+	padding-right:0;
+}
+
+#orion {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 30px;
+}
