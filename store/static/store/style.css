@@ -4,8 +4,8 @@
 }
 
 .col-md-2 img {
-	width:227px;
-	max-height: 242px;
+	max-width:227px;
+	height: 242px;
 }
 
 .carousel-indicators .active{
