@@ -4,7 +4,7 @@
 }
 
 .col-md-2 img {
-	max-width:227px;
+	width:227px;
 	height: 242px;
 }
 
@@ -21,13 +21,14 @@ body .carousel-indicators{
 
 body .carousel-control-prev-icon,
 body .carousel-control-next-icon{
-	background-color: rgb(1, 71, 68);
+	background-color: #bdbdbd;
 }
 
 .carousel-control-prev,
 .carousel-control-next{
 	top: auto;
   bottom: auto;
+  padding-top: 222px;
 }
 
 

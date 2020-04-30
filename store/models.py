@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 class Product(models.Model):
   product_id = models.AutoField
@@ -10,6 +11,9 @@ class Product(models.Model):
   desc = models.CharField(max_length = 300, default="")
   pub_date = models.DateField(default=timezone.now)
   image = models.ImageField(upload_to="store/images", default="")
+
+  def get_absolute_url(self):
+    return reverse('product_detail', args=(self.id,))
 
   def __str__(self):
     return self.product_name
