@@ -1,7 +1,7 @@
 # **Orion Cart**
 ## Orion Cart is a online shopping application
  The application is built with Django framework which includes the following functionalities
-- user login
+- user login, user Profile, Profile update (image, email, username, password reset) 
 - 
 - 
 
