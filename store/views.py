@@ -10,14 +10,18 @@ def home(request):
     catprods = Product.objects.values('category', 'id')
     cats = {item['category'] for item in catprods}
     for cat in cats:
-      prod = Product.objects.filter(category = cat)
-      n = len(prod)
-      nSlides = n//4 + ceil((n/4)-(n//4))
-      allProds.append([prod,range(1, nSlides), nSlides])
+        prod = Product.objects.filter(category = cat)
+        n = len(prod)
+        nSlides = n//4 + ceil((n/4)-(n//4))
+        allProds.append([prod,range(1, nSlides), nSlides])
     params = {'allProds': allProds,
               "categories_list": list_of_categories(),
               "sub_categories_list": list_of_sub_categories()
               }
+
+    # load categories into session
+    request.session["categories"] = list(Product.objects.values('id', 'category'))
+
     return render(request, 'store/home.html', params)
 
 def about(request, *args, **kwargs):
