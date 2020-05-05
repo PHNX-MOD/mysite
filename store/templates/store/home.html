@@ -3,6 +3,11 @@
 {% block content %}
  <!--Slideshow starts here -->
 
+  This is my categories from session
+  {% for cat in request.session.categories %}
+    {{cat.id}} - {{cat.category}} <br>
+  {% endfor %}
+
   {% for product, range, nSlides in allProds %}
 
     <h4 class="my-4">{{product.0.category}}</h4>
