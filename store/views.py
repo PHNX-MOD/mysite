@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from .contexting import list_of_categories, list_of_sub_categories
 
 def home(request):
+    
+    """
     allProds = []
     catprods = Product.objects.values('category', 'id')
     cats = {item['category'] for item in catprods}
@@ -18,7 +20,9 @@ def home(request):
               "categories_list": list_of_categories(),
               "sub_categories_list": list_of_sub_categories()
               }
-    return render(request, 'store/home.html', params)
+    """
+    request.session["categories"] = list(Product.objects.values('id', 'category'))
+    return render(request, 'store/home.html')
 
 def about(request, *args, **kwargs):
     context = {"categories_list": list_of_categories(),

@@ -37,8 +37,8 @@
             Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            {% for i in categories_list %}
-            <h5> {{i}} </h5>
+            {% for i in request.session.categories %}
+            <h5> {{i.category}} </h5>
             {% endfor %}
           </div>
         </li>
