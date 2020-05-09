@@ -1,85 +1,147 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
- {% load static %}
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="{% static 'store/style.css' %}" type="text/css">
-	{% if title %}
-    <title>{{ title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  {% if title %}
+      <title>{{ title }}</title>
     {% else %}
-    <title>{{ Products }}</title>
+      <title>Orion store</title>
     {% endif %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'store/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href= "{% static 'store/css/mdb.min.css' %}"  rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'store/css/style.min.css' %}" rel="stylesheet">
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height: 60vh;
+    }
 
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a id="orion" class="navbar-brand" href="{% url 'home' %}">Orion Cart</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'about' %}">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Cart(<span id="cart">0</span>)</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Sell</a>
-        </li>
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            {% for i in categories_list %}
-            <h5> {{i}} </h5>
-            {% endfor %}
-          </div>
-        </li>
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sub-Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            {% for i in sub_categories_list %}
-            <h5> {{i}} </h5>
-            {% endfor %}
-          </div>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success m-2 my-sm-0" type="submit">Search</button>
-      </form>
-      {% if user.is_authenticated %}
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
 
-        <div class="dropdown">
-          <a class="btn btn-success dropdown-toggle" href="{% url 'logout' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account:{{user.get_username}}
-          </a>
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="{% url 'home' %}" >
+        <strong class="blue-text">Orion Cart</strong>
+      </a>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-            <a class="dropdown-item" href= "{% url 'password_reset' %}">Password reset</a>
-          </div>
-        </div>
-        <a href="{% url 'logout' %}" role role="button" target="_blank" class="btn btn-info m-2 my-sm-0">Logout</a>
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      {% else %}
-        <a href="{% url 'login' %}" role role="button" target="_blank" class="btn btn-info m-2 my-sm-0">Login</a>
-        <a href="{% url 'register' %}" role role="button" target="_blank" class="btn btn-info m-2 my-sm-0">Register</a>
-      {% endif %}
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'home' %}">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'about' %}">About Us<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href=#
+              >Tracker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href=# >Sell
+              </a>
+          </li>
+        </ul>
+
+        <!-- Right -->
+        {% if user.is_authenticated %}
+
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"> 1 </span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block">(<span id="cart">0</span>)</span>
+            </a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'profile' %}" class="nav-link border border-light rounded waves-effect"
+              >
+              <i class="fas fa-user-circle"></i>Account:{{user.get_username}}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'logout' %}" class="nav-link waves-effect" >
+              <i class="fas fa-sign-out-alt"></i>Sign out
+            </a>
+          </li>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a class="nav-link waves-effect">
+              <span id="cart" class="badge red z-depth-1 mr-1">0</span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"></span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="nav-link waves-effect" >
+              <i class="fas fa-sign-in-alt"></i> Sign in
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'register' %}" class="nav-link border border-light rounded waves-effect"
+              >
+              <i class="fas fa-user-circle"></i>Register
+            </a>
+          </li>
+        </ul>
+        {% endif %}
+
+      </div>
+
     </div>
   </nav>
-
-
+  <!-- Navbar -->
 
   <div class="container">
     {% if messages %}
@@ -89,21 +151,83 @@
         </div>
       {% endfor %}
     {% endif %}
-  {% block content %}{% endblock %}
   </div>
 
-    <!-- Footer -->
-      <footer class="page-footer font-small blue">
 
-        <div class="footer-copyright text-center py-3">OrionCart@fake-email.com:
-          <a href=#> Contact us</a>
-        </div>
-      </footer>
-<!-- Footer -->
+  {% block content %}{% endblock %}
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    {% block js %} {% endblock %}
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="{% url 'home' %}"
+        role="button">Download catalogue
+        <i class="fas fa-download ml-2"></i>
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href=# >
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+
+      <a href=# >
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+
+      <a href=# >
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+
+      <a href=# >
+        <i class="fab fa-google-plus-g mr-3"></i>
+      </a>
+
+      <a href=# >
+        <i class="fab fa-dribbble mr-3"></i>
+      </a>
+
+      <a href=# >
+        <i class="fab fa-pinterest mr-3"></i>
+      </a>
+
+      <a href=# >
+        <i class="fab fa-github mr-3"></i>
+      </a>
+
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      <a href=# > contact us </a>
+    </div>
+    <!--/.Copyright-->
+
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src= "{% static 'store/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'store/js/popper.min.js' %}" ></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'store/js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'store/js/mdb.min.js' %}"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>
 </body>
+
 </html>

@@ -1,8 +1,15 @@
+ <style type="text/css">
+    #margintop{
+    margin-top: 120px;
+    margin-left:100px;
+    margin-right:100px;
+    }
+  </style>
+
 {% extends "store/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-   <br class="container-fluid">
-   </br>
+ <div id="margintop" class="container">
 	<div class="row">
 		<div class="col-md-3">
             <div class="content-section">
@@ -45,5 +52,5 @@
             </form>
 		</div>
 	</div>
-</div>
+ </div>
 {% endblock content %}

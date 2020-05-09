@@ -1,11 +1,19 @@
+ <style type="text/css">
+    #margintop{
+    margin-top: 100px;
+    margin-left:500px;
+    margin-right:500px;
+    }
+  </style>
 {% extends "store/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-
+ <div id="margintop" class="content-section">
     <h2>You have been logged out</h2>
     <div class = "border-top pt-3">
       <small class="text-muted">
        <a href="{% url 'login' %}">Login again?</a>
       </small>
     </div>
+ </div>
 {% endblock content %}

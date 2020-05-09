@@ -1,11 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import Product
 from math import ceil
-from django.http import JsonResponse
-from .contexting import list_of_categories, list_of_sub_categories
 
-def home(request):
+def discountPage(request):
     allProds = []
     catprods = Product.objects.values('category', 'id')
     cats = {item['category'] for item in catprods}
@@ -14,22 +11,26 @@ def home(request):
         n = len(prod)
         nSlides = n//4 + ceil((n/4)-(n//4))
         allProds.append([prod,range(1, nSlides), nSlides])
-    params = {'allProds': allProds,
-              "categories_list": list_of_categories(),
-              "sub_categories_list": list_of_sub_categories()
-              }
-
-    # load categories into session
-    request.session["categories"] = list(Product.objects.values('id', 'category'))
-
-    return render(request, 'store/home.html', params)
-
-def about(request, *args, **kwargs):
-    context = {"categories_list": list_of_categories(),
-               "sub_categories_list":list_of_sub_categories()}
-    return render(request, 'store/about.html', context)
+    params = {'allProds': allProds}
+    return render(request, 'store/discount.html', params)
 
 
+def about(request):
+    return render(request, 'store/about.html')
+
+def home(request):
+    request.session["categories"] = list(Product.objects.values('category').distinct())
+    request.session["sub_categories"] = list(Product.objects.values('sub_category').distinct())
+    return render(request, 'store/home.html')
+
+def productDetail(request):
+    return render(request, 'store/product_detail.html')
+
+def productList(request):
+    context = {
+        'products': Product.objects.all()
+    }
+    return render(request, 'store/product_list.html', context)
 
 def contact(request):
     return render(request, 'store/contact.html' )

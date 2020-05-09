@@ -39,5 +39,38 @@ body .no-padding{
 
 #orion {
 	font-family: Impact, Charcoal, sans-serif;
-	font-size: 30px;
+	font-size: 37px;
+}
+
+
+.navbar {
+    background-color: #07211f ! important;
+}
+
+.navbar .navbar-brand {
+    color: #b7b9bd;
+}
+
+
+.navbar .navbar-nav li a {
+    color: white ! important;
+    font-size: 19px;
+
+}
+
+.navbar .nav-item .dropdown-menu .dropdown-item{
+    color:black  ! important;
+}
+
+.navbar .nav-item .dropdown-menu .dropdown-item:hover{
+    color: white  ! important;
+    background-color:black;
+    opacity:0.8;
+}
+
+.navbar-toggler {
+    background-color:#01526b;
+}
+.dropdown .dropdown-item{
+   color:#383d38  ! important;
 }

@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterationForm, UserUpdateForm, ProfileUpdateForm
 from store.contexting import list_of_sub_categories, list_of_categories
 
-
 def register(request):
   if request.method == 'POST':
     form = UserRegisterationForm(request.POST)
