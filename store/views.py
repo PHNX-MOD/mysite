@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from .models import Product
 from math import ceil
+from django.views.generic import DetailView
 
-def discountPage(request):
+#not in use
+def discountPageNotInUse(request):
     allProds = []
     catprods = Product.objects.values('category', 'id')
     cats = {item['category'] for item in catprods}
@@ -19,18 +21,22 @@ def about(request):
     return render(request, 'store/about.html')
 
 def home(request):
+    context = {
+        'products' : Product.objects.all()
+    }
     request.session["categories"] = list(Product.objects.values('category').distinct())
     request.session["sub_categories"] = list(Product.objects.values('sub_category').distinct())
-    return render(request, 'store/home.html')
+    return render(request, 'store/home.html', context)
 
-def productDetail(request):
-    return render(request, 'store/product_detail.html')
+class ProductDetail(DetailView):
+    model = Product
+    template_name = 'store/product_detail.html'
+    context_object_name = 'product'
 
-def productList(request):
-    context = {
-        'products': Product.objects.all()
-    }
-    return render(request, 'store/product_list.html', context)
+class CategoryDetail(DetailView):
+    model = Product
+    template_name = 'store/category_detail.html'
+    context_object_name = 'category'
 
 def contact(request):
     return render(request, 'store/contact.html' )
@@ -47,4 +53,9 @@ def search(request):
 def checkout(request):
     return render(request, 'store/checkout.html' )
 
+def discountPage(request):
+    context = {
+        'products': Product.objects.all()
+    }
+    return render(request, 'store/discount.html', context)
 

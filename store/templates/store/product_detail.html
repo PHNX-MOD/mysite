@@ -10,7 +10,7 @@
         <!--Grid column-->
         <div class="col-md-6 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
+          <img src='/media/{{product.image}}' class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -23,24 +23,24 @@
 
             <div class="mb-3">
               <a href="">
-                <span class="badge purple mr-1">{{ object.get_category_display }}</span>
+                <span class="badge purple mr-1">{{ product.category }}</span>
               </a>
             </div>
 
             <p class="lead">
-              {% if object.discount_price %}
+              {% if product.discount_price %}
               <span class="mr-1">
-                <del>${{ object.price }}</del>
+                <del>{{ product.price }}€</del>
               </span>
-              <span>${{ object.discount_price }}</span>
+              <span>{{ product.discount_price }}€</span>
               {% else %}
-              <span>${{ object.price }}</span>
+              <span>{{ product.price }}€</span>
               {% endif %}
             </p>
 
-            <p class="lead font-weight-bold">Description</p>
+            <p class="lead font-weight-bold">{{ product.product_name }}</p>
 
-            <p>{{ object.description }}</p>
+            <p>{{ object.desc }}</p>
 
             {% comment %} <form class="d-flex justify-content-left">
               <!-- Default input -->
