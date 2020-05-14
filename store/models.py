@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 from django.urls import reverse
 from django.conf import settings
 
@@ -24,7 +23,7 @@ class Product(models.Model):
   sub_category = models.CharField(max_length = 50, default="")
   price = models.FloatField(default=0)
   desc = models.CharField(max_length = 300, default="")
-  pub_date = models.DateField(default=timezone.now)
+  pub_date = models.DateTimeField(auto_now_add=False)
   image = models.ImageField(upload_to="store/images", default="")
 
   def get_absolute_url(self):

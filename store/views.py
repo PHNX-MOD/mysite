@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Product
 from math import ceil
 from django.views.generic import DetailView
+from datetime import datetime, date, time, timedelta
 
 #not in use
 def discountPageNotInUse(request):
@@ -22,7 +23,7 @@ def about(request):
 
 def home(request):
     context = {
-        'products' : Product.objects.all()
+        'products': Product.objects.all()
     }
     request.session["categories"] = list(Product.objects.values('category').distinct())
     request.session["sub_categories"] = list(Product.objects.values('sub_category').distinct())
@@ -37,6 +38,15 @@ class CategoryDetail(DetailView):
     model = Product
     template_name = 'store/category_detail.html'
     context_object_name = 'category'
+
+def new_product_Page(request):
+    date = datetime.today()
+    start_week = date - timedelta(date.weekday())
+    end_week = start_week + timedelta(7)
+    context = {
+        'products': Product.objects.filter(pub_date__range=[start_week, end_week]).order_by('-pub_date')
+    }
+    return render(request, 'store/new_product.html', context)
 
 def contact(request):
     return render(request, 'store/contact.html' )
@@ -58,4 +68,6 @@ def discountPage(request):
         'products': Product.objects.all()
     }
     return render(request, 'store/discount.html', context)
+
+
 
