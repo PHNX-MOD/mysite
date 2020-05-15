@@ -51,9 +51,6 @@ def new_product_Page(request):
 def contact(request):
     return render(request, 'store/contact.html' )
 
-def productsView(request):
-    return render(request, 'store/products.html' )
-
 def tracker(request):
     return render(request, 'store/tracker.html' )
 
