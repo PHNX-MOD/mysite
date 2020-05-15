@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Product, Contact
 from math import ceil
 from django.views.generic import DetailView
 from datetime import datetime, date, time, timedelta
@@ -34,6 +34,7 @@ class ProductDetail(DetailView):
     template_name = 'store/product_detail.html'
     context_object_name = 'product'
 
+
 class CategoryDetail(DetailView):
     model = Product
     template_name = 'store/category_detail.html'
@@ -49,6 +50,14 @@ def new_product_Page(request):
     return render(request, 'store/new_product.html', context)
 
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        phone = request.POST.get('phone', '')
+        desc = request.POST.get('desc', '')
+        print(name, email, phone, desc)
+        contact = Contact(name=name, email=email, phone=phone, desc=desc)
+        contact.save()
     return render(request, 'store/contact.html' )
 
 def tracker(request):
