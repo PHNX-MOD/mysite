@@ -1,0 +1,22 @@
+[
+    {
+      "model": "store.product",
+      "pk": 1,
+      "fields": {
+        "product_name": "Product 1",
+        "label": "Product 2",
+        "discount_price": 0,
+        "pub_date": "2013-03-16T17:41:28+00:00"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 2,
+      "fields": {
+        "product_name": "Product 2",
+        "label": "Product 2",
+        "discount_price": 0,
+        "pub_date": "2013-03-16T17:41:28+00:00"
+      }
+    }
+  ]
