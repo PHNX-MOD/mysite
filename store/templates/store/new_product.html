@@ -11,131 +11,22 @@
     width:227px;
     height: 242px;
    }
+
+  #margintop{
+  margin-top: 50px;
+  }
+  #fs{
+  font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  }
 </style>
 
 {% extends "store/base.html" %}
 {% block content %}
-  <div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
-
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-
-      <!--First slide-->
-      <div class="carousel-item active">
-        <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%282%29.jpg'); background-repeat: no-repeat; background-size: cover;">
-
-          <!-- Mask & flexbox options-->
-          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-              <h1 class="mb-4">
-                <strong>Best offers on Fashion</strong>
-              </h1>
-
-              <p>
-                <strong>Buy today and get the best discount available</strong>
-              </p>
-
-              <a href="{% url 'discount' %}" class="btn btn-outline-white btn-lg">UPTO 60% Discount
-              </a>
-            </div>
-            <!-- Content -->
-
-          </div>
-          <!-- Mask & flexbox options-->
-
-        </div>
-      </div>
-      <!--/First slide-->
-
-      <!--Second slide-->
-      <div class="carousel-item">
-        <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%283%29.jpg'); background-repeat: no-repeat; background-size: cover;">
-
-          <!-- Mask & flexbox options-->
-          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-              <h1 class="mb-4">
-                <strong>Great deals on Electronics</strong>
-              </h1>
-
-              <p>
-                <strong>Buy today and get the best discount available</strong>
-              </p>
-
-
-              <a href="{% url 'discount' %}" class="btn btn-outline-white btn-lg">upto 40% discount
-              </a>
-            </div>
-            <!-- Content -->
-
-          </div>
-          <!-- Mask & flexbox options-->
-
-        </div>
-      </div>
-      <!--/Second slide-->
-
-      <!--Third slide-->
-      <div class="carousel-item">
-        <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%285%29.jpg'); background-repeat: no-repeat; background-size: cover;">
-
-          <!-- Mask & flexbox options-->
-          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-              <h1 class="mb-4">
-                <strong>Best Deals on cosmetics</strong>
-              </h1>
-              <p>
-                <strong>Buy today and get the best discount available</strong>
-              </p>
-
-              <a href="{% url 'discount' %}" class="btn btn-outline-white btn-lg">Upto 20% Discount
-              </a>
-            </div>
-            <!-- Content -->
-
-          </div>
-          <!-- Mask & flexbox options-->
-
-        </div>
-      </div>
-      <!--/Third slide-->
-
-    </div>
-    <!--/.Slides-->
-
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-
-  </div>
-  <!--/.Carousel Wrapper-->
-
+ <div id="margintop" class ="p-5">
   <!--Main layout-->
   <main>
     <div class="container">
-
+    <h2 id="fs" >Newly added items</h2>
       <!--Navbar-->
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
 
@@ -160,8 +51,8 @@
                 Categories
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for i in request.session.categories %}
-                <a class="dropdown-item" href=#> {{i.category}} </a>
+                {% for i in categories %}
+                <a class="dropdown-item" href="{% url 'category_detail' i.pk %}"> {{i.name}} </a>
                 <div class="dropdown-divider"></div>
                 {% endfor %}
               </div>
@@ -171,8 +62,8 @@
                 Sub-Categories
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown ">
-                {% for i in request.session.sub_categories %}
-                <a class="dropdown-item" href=#> {{i.sub_category}} </a>
+                {% for i in sub_categories %}
+                <a class="dropdown-item" href="{% url 'subcategory_detail' i.pk %}"> {{i.name}} </a>
                 <div class="dropdown-divider"></div>
                 {% endfor %}
               </div>
@@ -199,10 +90,6 @@
 
       </nav>
 
-      <div class="container">
-        <h3><u><em>This week</u></em></h3> </br>
-      </div>
-
       <!--/.Navbar-->
        <section class="text-center mb-4">
 
@@ -228,8 +115,8 @@
               <!--Card content-->
               <div class="card-body text-center">
                 <!--Category & Title-->
-                <a href="" class="grey-text">
-                  <h6>{{ i.category }}</h6>
+                <a href="{% url 'category_detail' i.category.pk %}" class="grey-text">
+                  <h5>{{ i.category }}</h5>
                 </a>
                 <h5>
                   <strong>
@@ -237,9 +124,7 @@
                     </a>
                   </strong>
                 </h5>
-                {% if i.discount_price %}
-                  <h6><span class="badge purple mr-1">On discount </span></h6>
-                {% endif %}
+
                 <h6 class="font-weight-bold blue-text">
                     {{ i.price }}€
                 </h6>
@@ -308,7 +193,7 @@
 
     </div>
   </main>
-
+ </div>
 {% endblock content %}
 
 

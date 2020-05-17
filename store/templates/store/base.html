@@ -6,11 +6,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  {% if title %}
+  {% block title %}
+    {% if title %}
       <title>{{ title }}</title>
     {% else %}
       <title>Orion store</title>
     {% endif %}
+  {% endblock %}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="{% static 'store/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -72,7 +74,7 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'home' %}">Home
+            <a class="nav-link waves-effect" href="{% url 'home' %}">Home <i class="fas fa-home"></i>
               <span class="sr-only">(current)</span>
             </a>
           </li>

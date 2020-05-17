@@ -11,25 +11,23 @@
     width:227px;
     height: 242px;
    }
-
-  #margintop{
-  margin-top: 0px;
+     #margintop{
+  margin-top: 50px;
   }
   #fs{
   font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
   }
 </style>
-<title>Discount</title>
 {% extends "store/base.html" %}
 {% block content %}
  <div id="margintop" class ="p-5">
 
   <!--Main layout-->
   <main>
-    <div class="container mt-5">
-      <h2 id="fs" >Discounts</h2>
+    <div class="container">
+         <h2 id="fs" >{{ sub_category.name}}</h2>
 
-      <!--Navbar-->
+
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
 
         <!-- Navbar brand -->
@@ -91,7 +89,6 @@
         <!-- Collapsible content -->
 
       </nav>
-      <!--/.Navbar-->
 
       <!--Section: Products v.3-->
       <section class="text-center mb-4">
@@ -99,7 +96,6 @@
         <!--Grid row-->
         <div class="row wow fadeIn">
           {% for i in products %}
-            {% if i.get_on_discount_display == 'yes' %}
           <!--Grid column-->
           <div class="col-lg-3 col-md-6 mb-4">
 
@@ -129,11 +125,8 @@
                   </strong>
                 </h5>
 
-                <h6 class="font-weight red-text">
-                  <del>{{ i.price }}€</del>
-                </h6>
                 <h6 class="font-weight-bold blue-text">
-                    {{ i.discount_price }}€
+                    {{ i.price }}€
                 </h6>
                 <button id="pr{{i.id}}" class="btn btn-info btn-sm cart" type="submit">
                 Add to cart
@@ -148,7 +141,6 @@
 
           </div>
           <!--Grid column-->
-            {% endif %}
         {% endfor %}
         </div>
         <!--Grid row-->

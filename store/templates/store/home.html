@@ -171,8 +171,8 @@
                 Sub-Categories
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown ">
-                {% for i in request.session.sub_categories %}
-                <a class="dropdown-item" href=#> {{i.sub_category}} </a>
+                {% for subcategory in sub_categories %}
+                <a class="dropdown-item" href="{% url 'subcategory_detail' subcategory.pk %}"> {{subcategory}} </a>
                 <div class="dropdown-divider"></div>
                 {% endfor %}
               </div>
@@ -227,7 +227,7 @@
               <!--Card content-->
               <div class="card-body text-center">
                 <!--Category & Title-->
-                <a href="" class="grey-text sm">
+                <a href="{% url 'category_detail' i.category.pk %}" class="grey-text sm">
                   <h6>{{ i.category }}</h6>
                 </a>
                 <h6>

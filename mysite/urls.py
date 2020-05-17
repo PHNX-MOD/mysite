@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from users import views as user_views
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("store.urls")),
