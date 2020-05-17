@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Product, Contact, Category, SubCategory
 from math import ceil
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from datetime import datetime, date, time, timedelta
 
 #not in use
@@ -21,13 +21,25 @@ def discountPageNotInUse(request):
 def about(request):
     return render(request, 'store/about.html')
 
-def home(request):
+"""def home(request):
     context = {
         'products': Product.objects.all()
     }
-    request.session["categories"] = list(Product.objects.values('category'))
+    request.session["categories"] = list(Product.objects.values('pk','category'))
     #request.session["sub_categories"] = list(SubCategory.objects.all().distinct())
-    return render(request, 'store/home.html', context)
+    return render(request, 'store/home.html', context)"""
+
+class Home(ListView):
+    model = Category
+    template_name = 'store/home.html'
+    context_object_name = 'home_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(Home, self).get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['products'] = Product.objects.all()
+        return context
+
 
 class ProductDetail(DetailView):
     model = Product
@@ -36,9 +48,15 @@ class ProductDetail(DetailView):
 
 
 class CategoryDetail(DetailView):
-    model = Product
+    model = Category
     template_name = 'store/category_detail.html'
     context_object_name = 'category'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = context['category']
+        products = Product.objects.filter(category=category)
+        context['products'] = products
+        return context
 
 def new_product_Page(request):
     date = datetime.today()

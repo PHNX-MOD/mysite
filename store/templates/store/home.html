@@ -160,8 +160,8 @@
                 Categories
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for i in request.session.categories %}
-                <a class="dropdown-item" href="{% url 'category_detail' category.pk %}"> {{i.category}} </a>
+                {% for category in categories %}
+                <a class="dropdown-item" href="{% url 'category_detail' category.pk %}"> {{category}} </a>
                 <div class="dropdown-divider"></div>
                 {% endfor %}
               </div>
