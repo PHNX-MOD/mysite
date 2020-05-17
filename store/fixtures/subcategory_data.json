@@ -1,0 +1,107 @@
+[
+{
+    "model": "store.subcategory",
+    "pk": 1,
+    "fields": {
+        "name": "Phone"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 2,
+    "fields": {
+        "name": "T-shirt"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 3,
+    "fields": {
+        "name": "Car"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 4,
+    "fields": {
+        "name": "Power Bank"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 5,
+    "fields": {
+        "name": "Laptop"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 6,
+    "fields": {
+        "name": "Tablet"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 7,
+    "fields": {
+        "name": "After Shave"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 8,
+    "fields": {
+        "name": "Television"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 9,
+    "fields": {
+        "name": "Microphone"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 10,
+    "fields": {
+        "name": "Shoes"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 11,
+    "fields": {
+        "name": "Radio"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 12,
+    "fields": {
+        "name": "Pc Monitor"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 13,
+    "fields": {
+        "name": "Watches"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 14,
+    "fields": {
+        "name": "Denim Jeans"
+    }
+},
+{
+    "model": "store.subcategory",
+    "pk": 15,
+    "fields": {
+        "name": "Kettle"
+    }
+}
+]

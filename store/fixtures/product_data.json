@@ -1,0 +1,242 @@
+[
+{
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+        "product_name": "i-phone 11",
+        "label": "P",
+        "on_discount": "N",
+        "category": 1,
+        "sub_category": 1,
+        "discount_price": 0.0,
+        "price": 700.0,
+        "desc": "A new dual\u2011camera system captures more of what you see and love. The fastest chip ever in a smartphone and all\u2011day battery life let you do more and charge less. And the highest\u2011quality video in a smartphone, so your memories look better than ever.",
+        "pub_date": "2020-05-17T08:32:48Z",
+        "image": "store/images/silver-iphone-x-and-apple-earpods_3m8Yg7a_dCm0lXb.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+        "product_name": "wiki t-shirt",
+        "label": "P",
+        "on_discount": "N",
+        "category": 2,
+        "sub_category": 2,
+        "discount_price": 0.0,
+        "price": 20.0,
+        "desc": "A T-shirt is a style of fabric shirt named after the T shape of its body and sleeves. Traditionally it has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of a stretchy, light and inexpensive fabric and are easy to clean.",
+        "pub_date": "2020-05-17T08:42:18Z",
+        "image": "store/images/1024px-Logo_modeselektor_blanc-T-shirt_4JQfhGY_MoasArn.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+        "product_name": "Toyota corolla",
+        "label": "P",
+        "on_discount": "Y",
+        "category": 3,
+        "sub_category": 3,
+        "discount_price": 2500.0,
+        "price": 3000.0,
+        "desc": "The 2020 Toyota Corolla's #8 ranking is based on its score within the Compact Cars category. It was a finalist for our 2020 Best Compact Car for the Money award. Currently the Toyota Corolla has a score of 8.0 out of 10, which is based on our evaluation of 21 pieces of research and data elements usi",
+        "pub_date": "2020-05-17T09:12:57Z",
+        "image": "store/images/2020-toyota-corolla-xle-cvt-natl-angular-front-exterior-view_100734534_l_vjnXtbO.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+        "product_name": "Power me x11",
+        "label": "P",
+        "on_discount": "N",
+        "category": 1,
+        "sub_category": 4,
+        "discount_price": 32.0,
+        "price": 35.0,
+        "desc": "Power Bank 10000mAh Portable Charger Ultra Slim Powerbank with USB-C & 2 x USB A Total Triple Output Battery Pack for iPhone X/8/8Plus,iPad,Samsung Galaxy S9/Note 8,and more Smartrtphone and Pad",
+        "pub_date": "2020-05-17T09:15:10Z",
+        "image": "store/images/49237718262_8abe1a326d_c_cJTMVfb.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+        "product_name": "Xiomee Tablet vcx",
+        "label": "P",
+        "on_discount": "N",
+        "category": 1,
+        "sub_category": 6,
+        "discount_price": 0.0,
+        "price": 145.0,
+        "desc": "Xiomee Tablet vcx is our best-selling tablet\u2014now 2X the storage, faster quad-core processor and hands free with Alexa. Complete tasks, enjoy movies on the go, browse recipes or ask Alexa for the weather\u2014making your every day easier.",
+        "pub_date": "2020-05-17T09:16:56Z",
+        "image": "store/images/images_irGqjwA.jpeg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 6,
+    "fields": {
+        "product_name": "Nivea AfterShave",
+        "label": "P",
+        "on_discount": "N",
+        "category": 4,
+        "sub_category": 7,
+        "discount_price": 0.0,
+        "price": 11.0,
+        "desc": "Nivea calming after shave balm has been approved by men with sensitive skin and will reduce skin sensitivity with regular use Instantly Soothes - With our post shave balm men will find that their skin is instantly soothed and any post-shaving skin irritation is calmed",
+        "pub_date": "2020-05-17T09:36:01Z",
+        "image": "store/images/download_BMnygq6.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 7,
+    "fields": {
+        "product_name": "Tele flatscreen -c40",
+        "label": "P",
+        "on_discount": "Y",
+        "category": 1,
+        "sub_category": 8,
+        "discount_price": 350.0,
+        "price": 400.0,
+        "desc": "is an excellent choice for any home. The 39&quot; LED TV supports Full HD 1080P resolution for clear details as well as vibrant colour to add to the pleasure of watching your favourite movies, games and TV shows. Featuring built-in Wi-Fi and a wealth of Smart TV features you can access catch up and",
+        "pub_date": "2020-05-17T09:40:05Z",
+        "image": "store/images/flatscreen-148843_960_720_7lxiZUV.png"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 8,
+    "fields": {
+        "product_name": "Mic and mimic",
+        "label": "P",
+        "on_discount": "Y",
+        "category": 1,
+        "sub_category": 9,
+        "discount_price": 25.0,
+        "price": 30.0,
+        "desc": "High quality uni-directional wired microphone perfect for karaoke Designed to be easily held and clearly amplify audio Lightweight - just 200g; no need for batteries 3 metre cable",
+        "pub_date": "2020-05-17T09:43:54Z",
+        "image": "store/images/images_1FWZils.jpeg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 9,
+    "fields": {
+        "product_name": "Nike Shoes",
+        "label": "P",
+        "on_discount": "N",
+        "category": 2,
+        "sub_category": 10,
+        "discount_price": 0.0,
+        "price": 50.0,
+        "desc": "The stylish mesh athletic sneakers are for little boys girls daily wear, breathable mesh upper makes children's feet dry and comfortable. It is suitable for hiking, jogging, running, hiking, climbing, traveling, camping, cycling and so on. Outer Material: Synthetic",
+        "pub_date": "2020-05-17T09:45:06Z",
+        "image": "store/images/images_oYNc2HH_nW2VDOH.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 10,
+    "fields": {
+        "product_name": "Retro old radio",
+        "label": "P",
+        "on_discount": "N",
+        "category": 1,
+        "sub_category": 11,
+        "discount_price": 0.0,
+        "price": 350.0,
+        "desc": "Retro old radio for sale",
+        "pub_date": "2020-04-17T09:46:20Z",
+        "image": "store/images/images_ra3o3PC_XYIRZ9S.jpeg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 11,
+    "fields": {
+        "product_name": "Monitor x123",
+        "label": "P",
+        "on_discount": "Y",
+        "category": 1,
+        "sub_category": 12,
+        "discount_price": 45.0,
+        "price": 55.0,
+        "desc": "Pc monitor for sale",
+        "pub_date": "2020-03-17T09:47:25Z",
+        "image": "store/images/index_w6Tj6Wq.jpeg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 12,
+    "fields": {
+        "product_name": "Naviforce Waterproof",
+        "label": "P",
+        "on_discount": "N",
+        "category": 2,
+        "sub_category": 13,
+        "discount_price": 0.0,
+        "price": 350.0,
+        "desc": "NAVIFORCE Men Watch,Quartz Chronograph 3ATM Waterproof Watches for Men Casual Business Men's Watches Best Gift for Men",
+        "pub_date": "2020-03-17T09:48:33Z",
+        "image": "store/images/naviforce-waterproof-watch-watch-time-clock_C8Cqx3l.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 13,
+    "fields": {
+        "product_name": "Levis on",
+        "label": "P",
+        "on_discount": "Y",
+        "category": 2,
+        "sub_category": 14,
+        "discount_price": 70.0,
+        "price": 85.0,
+        "desc": "Touch and tough denim jeans from Levis on",
+        "pub_date": "2019-05-17T09:49:53Z",
+        "image": "store/images/person-in-blue-denim-jeans_Jof810T.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 14,
+    "fields": {
+        "product_name": "Retro borosilicate kettle",
+        "label": "P",
+        "on_discount": "N",
+        "category": 5,
+        "sub_category": 15,
+        "discount_price": 0.0,
+        "price": 70.0,
+        "desc": "Retro style water kettle for sale",
+        "pub_date": "2020-01-17T09:51:11Z",
+        "image": "store/images/silver-and-clear-electric-kettle-with-bioling-water_1bD2u1s_xB9bGP5.jpg"
+    }
+},
+{
+    "model": "store.product",
+    "pk": 15,
+    "fields": {
+        "product_name": "Sansyong",
+        "label": "P",
+        "on_discount": "N",
+        "category": 1,
+        "sub_category": 5,
+        "discount_price": 845.0,
+        "price": 900.0,
+        "desc": "Pro pre-installed Windows 10 Home OS, the latest generation of Intel UHD Graphics 600, two-core and two-wire processors, enables Turbo Boost speeds up to 2.6 GHz. ( Note: Due to the upgrade of lastest Windows OS, the update time may take up to 48 hours. To avoid 'LONG WAITING of UPDATES', please 'sk",
+        "pub_date": "2019-05-17T09:52:48Z",
+        "image": "store/images/unnamed_00x8KiH.jpg"
+    }
+}
+]

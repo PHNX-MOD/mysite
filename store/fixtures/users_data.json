@@ -1,0 +1,20 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$kUkuBZ53M6aM$2SK9i7Cc0jeczCMT2+WTd8P2ADRE0VS09YTAe1qY2F8=",
+        "last_login": "2020-05-17T08:49:40.096Z",
+        "is_superuser": true,
+        "username": "modith",
+        "first_name": "",
+        "last_name": "",
+        "email": "modith.hadya@fakemail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-05-17T08:27:09.454Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
