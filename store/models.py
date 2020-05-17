@@ -13,14 +13,27 @@ LABEL_CHOICES = [
   ('D', 'danger')
 ]
 
+
+class Category(models.Model):
+  name = models.CharField(max_length=200)
+
+  def __str__(self):
+    return self.name
+
+class SubCategory(models.Model):
+  name = models.CharField(max_length=200)
+
+  def __str__(self):
+    return self.name
+
 class Product(models.Model):
   product_id = models.AutoField
   product_name = models.CharField(max_length = 50)
   label = models.CharField(choices=LABEL_CHOICES, max_length=1)
   on_discount = models.CharField(choices=ON_DISCOUNT, max_length=1)
-  category = models.CharField(max_length = 50, default="")
+  category = models.ForeignKey(Category, related_name='Category', blank=True, on_delete=models.CASCADE)
+  sub_category = models.ForeignKey(SubCategory, related_name='SubCategory', blank=True, on_delete=models.CASCADE)
   discount_price = models.FloatField()
-  sub_category = models.CharField(max_length = 50, default="")
   price = models.FloatField(default=0)
   desc = models.CharField(max_length = 300, default="")
   pub_date = models.DateTimeField(auto_now_add=False)

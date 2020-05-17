@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product, Contact
+from .models import Product, Contact, Category, SubCategory
 from math import ceil
 from django.views.generic import DetailView
 from datetime import datetime, date, time, timedelta
@@ -25,8 +25,8 @@ def home(request):
     context = {
         'products': Product.objects.all()
     }
-    request.session["categories"] = list(Product.objects.values('category').distinct())
-    request.session["sub_categories"] = list(Product.objects.values('sub_category').distinct())
+    request.session["categories"] = list(Product.objects.values('category'))
+    #request.session["sub_categories"] = list(SubCategory.objects.all().distinct())
     return render(request, 'store/home.html', context)
 
 class ProductDetail(DetailView):

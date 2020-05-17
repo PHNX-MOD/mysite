@@ -10,7 +10,7 @@ urlpatterns = [
     path("tracker/", views.home, name="trackingStatus"),
     path("search/", views.home, name="search"),
     path("product_detail/<int:pk>", ProductDetail.as_view(), name="product_detail"),
-    path("category-detail/<int:pk>", CategoryDetail.as_view(), name="category_detail"),
+    path("category_detail/<int:pk>", CategoryDetail.as_view(), name="category_detail"),
     path("checkout", views.home, name="checkout"),
     path("new_product/", views.new_product_Page, name="new_product"),
 ]
