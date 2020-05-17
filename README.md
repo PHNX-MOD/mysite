@@ -7,9 +7,10 @@
 `python manage.py runserver` to run to application
 
 To load the fixtures
-`python3 manage.py loaddata store/fixtures/category_data.json`
-`python3 manage.py loaddata store/fixtures/subcategory_data.json`
-`python3 manage.py loaddata store/fixtures/product_data.json`
+- `python3 manage.py loaddata store/fixtures/category_data.json`
+- `python3 manage.py loaddata store/fixtures/subcategory_data.json`
+- `python3 manage.py loaddata store/fixtures/product_data.json`
+
 Some Git commands
 `git add *`
 `git commit -m "Commit message"`
