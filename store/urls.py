@@ -13,6 +13,6 @@ urlpatterns = [
     path("product_detail/<int:pk>", ProductDetail.as_view(), name="product_detail"),
     path("category_detail/<int:pk>", CategoryDetail.as_view(), name="category_detail"),
     path("subcategory_detail/<int:pk>", SubCategoryDetail.as_view(), name="subcategory_detail"),
-    #path("checkout", views.home, name="checkout"),
+    path("checkout", views.checkout, name="checkout"),
     path("new_product/", views.new_product_Page, name="new_product"),
 ]

@@ -11,6 +11,9 @@
     width:227px;
     height: 242px;
    }
+   #boldcartpopover {
+   font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+   }
 </style>
 
 {% extends "store/base.html" %}
@@ -213,7 +216,7 @@
 
 
             <!--Card-->
-            <div class="card">
+            <div class="card align-items-center">
               <!--Card image-->
               <div class="view overlay">
                 <img src='/media/{{i.image}}' class="card-img-top"
@@ -232,17 +235,18 @@
                 </a>
                 <h6>
                   <strong>
-                    <a href="{% url 'product_detail' i.pk %}" class="dark-grey-text">{{ i.product_name }}
+                    <a href="{% url 'product_detail' i.pk %}" class="dark-grey-text" id="namepr{{i.id}}">{{ i.product_name }}
                     </a></strong>
                 </h6>
 
                 <h6 class="font-weight blue-text">
                     {{ i.price }}€
                 </h6>
+                <span id="divpr{{i.id}}" class="divpr">
                 <button id="pr{{i.id}}" class="btn btn-info btn-sm cart" type="submit">
                 Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
+              </button></span>
 
               </div>
               <!--Card content-->
@@ -307,33 +311,90 @@
 {% endblock content %}
 
 {% block js %}
-
 <script>
-if(localStorage.getItem('cart') == null){
-var cart = {};
-}
-else
-{
-cart = JSON.parse(localStorage.getItem('cart'));
-}
-$('.cart').click(function(){
-console.log('clicked');
-var idstr = this.id.toString();
-console.log(idstr);
-if (cart[idstr] !=undefined){
-cart[idstr] = cart[idstr] + 1;
-}
-else
-{
-cart[idstr] = 1;
-}
-console.log(cart);
-localStorage.setItem('cart', JSON.stringify(cart));
-document.getElementById('cart').innerHTML = Object.keys(cart).length;
-});
-$('#popcart').popover();
-document.getElementById("popcart").setAttribute('data-content','<h6>Cart</h6>');
-</script>
+//find out the cart items from local storage
 
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    }
+else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    updateCart(cart);
+}
+
+// if add to cart button is clicked, add/increment the item
+
+//$('.cart').click(function() {
+    $('.divpr').on('click', 'button.cart', function(){
+    var idstr = this.id.toString();
+    if (cart[idstr] != undefined) {
+        cart[idstr] = cart[idstr] + 1;
+    } else {
+        cart[idstr] = 1;
+    }
+    updateCart(cart)
+});
+
+//add popover to cart
+
+$('#popcart').popover();
+updatePopover(cart);
+function updatePopover(cart)
+{
+  console.log('we are inside update popover');
+  var popStr = "";
+  popStr = popStr + "<h5> Your Cart Items</h5><div class='mx-2 my-2'>";
+    var i = 1;
+    for (var item in cart){
+        popStr = popStr + "<b>" + i + "</b>. ";
+        popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "(Qty: " + cart[item] + ")"+'<br>';
+        i = i+1;
+    }
+    popStr = popStr + "</div> <a href='/checkout'><button class='btn btn-primary btn-sm' id ='checkout'>Checkout</button></a> <button class='btn btn-primary btn-sm' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+    console.log(popStr);
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+    $('#popcart').popover('show');
+}
+
+function clearCart() {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    for (var item in cart) {
+        document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-info btn-sm cart" type="submit"> Add to cart <i class="fas fa-shopping-cart ml-1"></i></button>'
+    }
+    localStorage.clear();
+    cart = {};
+    updateCart(cart);
+}
+
+function updateCart(cart) {
+    var sum=0;
+    for (var item in cart) {
+    sum = sum + cart[item];
+        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = sum;
+    console.log(cart)
+    updatePopover(cart);
+}
+
+// If plus or minus button is clicked, change the cart as well as the display value
+
+$('.divpr').on("click", "button.minus", function() {
+    a = this.id.slice(7, );
+    cart['pr' + a] = cart['pr' + a] - 1;
+    cart['pr' + a] = Math.max(0, cart['pr' + a]);
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a];
+    updateCart(cart);
+});
+
+$('.divpr').on("click", "button.plus", function() {
+    a = this.id.slice(6, );
+    cart['pr' + a] = cart['pr' + a] + 1;
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a];
+    updateCart(cart);
+});
+
+</script>
 {% endblock %}
 

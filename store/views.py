@@ -8,14 +8,6 @@ from datetime import datetime, date, time, timedelta
 def about(request):
     return render(request, 'store/about.html')
 
-"""def home(request):
-    context = {
-        'products': Product.objects.all()
-    }
-    request.session["categories"] = list(Product.objects.values('pk','category'))
-    #request.session["sub_categories"] = list(SubCategory.objects.all().distinct())
-    return render(request, 'store/home.html', context)"""
-
 class Home(ListView):
     model = Category
     template_name = 'store/home.html'
@@ -98,7 +90,7 @@ def search(request):
     return render(request, 'store/search.html' )
 
 def checkout(request):
-    return render(request, 'store/checkout.html' )
+    return render(request, 'store/checkout.html')
 
 #not in use
 def discountPageNotInUse(request):
